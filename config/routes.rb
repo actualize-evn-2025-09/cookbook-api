@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/one_recipe" => "recipes#one_recipe"
+  get "/all_recipes" => "recipes#all_recipes"
 end

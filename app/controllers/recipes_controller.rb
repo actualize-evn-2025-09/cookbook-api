@@ -4,4 +4,10 @@ class RecipesController < ApplicationController
 
     render json: recipe
   end
+
+  def all_recipes
+    recipes = Recipe.all
+
+    render json: recipes
+  end
 end
