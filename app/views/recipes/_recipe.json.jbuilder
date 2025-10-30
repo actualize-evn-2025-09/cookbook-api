@@ -3,3 +3,4 @@ json.title recipe.title
 json.ingredients recipe.ingredients
 json.directions recipe.directions
 json.prep_time recipe.prep_time
+json.chef recipe.chef
