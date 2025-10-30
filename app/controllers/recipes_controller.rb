@@ -1,13 +1,13 @@
 class RecipesController < ApplicationController
   def one_recipe
-    recipe = Recipe.first
+    @recipe = Recipe.first
 
-    render json: recipe
+    render template: "recipes/show"
   end
 
   def all_recipes
-    recipes = Recipe.all
+    @recipes = Recipe.all
 
-    render json: recipes
+    render template: "recipes/index"
   end
 end
