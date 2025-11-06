@@ -2,7 +2,8 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
 
-    render :index
+    # render :index
+    render json: @recipes
   end
 
   def show
