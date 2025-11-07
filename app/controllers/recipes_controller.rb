@@ -41,7 +41,11 @@ class RecipesController < ApplicationController
       directions: params[:directions] || @recipe.directions
     )
 
-    render :show
+    if @recipe.valid?
+      render :show
+    else
+      render json: { errors: @recipe.errors }, status: :unprocessable_entity
+    end
   end
 
   def destroy
