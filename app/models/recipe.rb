@@ -1,8 +1,8 @@
 class Recipe < ApplicationRecord
-  validates :title, presence: { message: "Email address cannot be blank." }
-  validates :prep_time, numericality: { greater_than: 0 }
+  validates :title, presence: { message: "Title can't be blank." }
+  # validates :prep_time, numericality: { greater_than: 0 }
 
-  validate :ingredients_and_directions_presence
+  # validate :ingredients_and_directions_presence
 
   def ingredients_list
     ingredients.split(", ")

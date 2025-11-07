@@ -20,7 +20,12 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
   test "create" do
     assert_difference "Recipe.count", 1 do
       post "/recipes.json", params: { title: "Cake", chef: "Peter", image_url: "test.jpg", prep_time: 10, ingredients: "Batter", directions: "Bake" }
-      assert_response 200
+      assert_response 201
+    end
+
+    assert_difference "Recipe.count", 0 do
+      post "/recipes.json", params: {}
+      assert_response 422
     end
   end
 

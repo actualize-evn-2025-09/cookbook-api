@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.create(
+    @recipe = Recipe.new(
       title: params[:title],
       chef: params[:chef],
       image_url: params[:image_url],
@@ -22,7 +22,11 @@ class RecipesController < ApplicationController
       directions: params[:directions]
     )
 
-    render :show
+    if @recipe.save
+      render :show, status: :created
+    else
+      render json: { errors: @recipe.errors }, status: :unprocessable_entity
+    end
   end
 
   def update
