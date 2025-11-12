@@ -15,11 +15,11 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(
       title: params[:title],
-      chef: params[:chef],
       image_url: params[:image_url],
       prep_time: params[:prep_time],
       ingredients: params[:ingredients],
-      directions: params[:directions]
+      directions: params[:directions],
+      chef_id: params[:chef_id]
     )
 
     if @recipe.save
@@ -34,11 +34,11 @@ class RecipesController < ApplicationController
 
     @recipe.update(
       title: params[:title] || @recipe.title,
-      chef: params[:chef] || @recipe.chef,
       image_url: params[:image_url] || @recipe.image_url,
       prep_time: params[:prep_time] || @recipe.prep_time,
       ingredients: params[:ingredients] || @recipe.ingredients,
-      directions: params[:directions] || @recipe.directions
+      directions: params[:directions] || @recipe.directions,
+      chef_id: params[:chef_id] || @recipe.chef_id
     )
 
     if @recipe.valid?
