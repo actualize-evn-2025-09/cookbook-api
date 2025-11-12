@@ -4,6 +4,10 @@ class Recipe < ApplicationRecord
 
   # validate :ingredients_and_directions_presence
 
+  def chef
+    Chef.find_by(id: chef_id)
+  end
+
   def ingredients_list
     ingredients.split(", ")
   end
